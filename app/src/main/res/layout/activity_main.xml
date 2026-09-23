@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0f172a">
+
+    <!-- LAPISAN 1: PAPAN PERMAINAN -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/judul_permainan"
+                android:textColor="#e2e8f0"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <!-- Display Skor (Poin 4) -->
+            <TextView
+                android:id="@+id/tvSkor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                android:text="Skor: 0"
+                android:textColor="#f59e0b"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvNyawa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nyawa: 6"
+                android:textColor="#3ddc84"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/frameGantungan"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="8dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/gambar_gantungan"
+                android:scaleType="fitCenter"
+                android:src="@drawable/gambar_tiang" />
+
+            <ImageView
+                android:id="@+id/imgKepala"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:importantForAccessibility="no"
+                android:scaleType="fitCenter"
+                android:src="@drawable/gambar_kepala"
+                android:visibility="invisible" />
+
+            <ImageView
+                android:id="@+id/imgBadan"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:importantForAccessibility="no"
+                android:scaleType="fitCenter"
+                android:src="@drawable/gambar_badan"
+                android:visibility="invisible" />
+
+            <ImageView
+                android:id="@+id/imgTanganKiri"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:importantForAccessibility="no"
+                android:scaleType="fitCenter"
+                android:src="@drawable/gambar_tangan_kiri"
+                android:visibility="invisible" />
+
+            <ImageView
+                android:id="@+id/imgTanganKanan"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:importantForAccessibility="no"
+                android:scaleType="fitCenter"
+                android:src="@drawable/gambar_tangan_kanan"
+                android:visibility="invisible" />
+
+            <ImageView
+                android:id="@+id/imgKakiKiri"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:importantForAccessibility="no"
+                android:scaleType="fitCenter"
+                android:src="@drawable/gambar_kaki_kiri"
+                android:visibility="invisible" />
+
+            <ImageView
+                android:id="@+id/imgKakiKanan"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:importantForAccessibility="no"
+                android:scaleType="fitCenter"
+                android:src="@drawable/gambar_kaki_kanan"
+                android:visibility="invisible" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/tvHintGame"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="#94a3b8"
+            android:textSize="12sp"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/tvKata"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:fontFamily="monospace"
+            android:gravity="center"
+            android:letterSpacing="0.2"
+            android:textColor="#ffffff"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvRiwayat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:gravity="center"
+            android:text="Salah: -"
+            android:textColor="#94a3b8"
+            android:textSize="12sp" />
+
+        <!-- Input Manual Teks Hilang, Diganti GridLayout Keyboard A-Z (Poin 1) -->
+        <GridLayout
+            android:id="@+id/gridKeyboard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:columnCount="7"
+            android:alignmentMode="alignMargins"
+            android:useDefaultMargins="true" />
+    </LinearLayout>
+
+    <!-- LAPISAN 2: OVERLAY HASIL -->
+    <LinearLayout
+        android:id="@+id/overlayHasil"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#cc0f172a"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="28dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tvHasil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Kamu Menang!"
+            android:textColor="#3ddc84"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvKataAkhir"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="monospace"
+            android:gravity="center"
+            android:letterSpacing="0.2"
+            android:textColor="#e2e8f0"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/btnMainLagi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:text="@string/btn_main_lagi" />
+    </LinearLayout>
+
+    <!-- LAPISAN 3: OVERLAY MULAI -->
+    <LinearLayout
+        android:id="@+id/overlayMulai"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ee0f172a"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="28dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/judul_permainan"
+            android:textColor="#3ddc84"
+            android:textSize="34sp"
+            android:textStyle="bold" />
+
+        <!-- Petunjuk Tema Android (Poin 3) -->
+        <TextView
+            android:id="@+id/tvHintAwal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:text="Kata pada game ini berkaitan dengan Pemrograman Android!\nTebak huruf satu per satu."
+            android:textColor="#94a3b8" />
+
+        <Button
+            android:id="@+id/btnMulai"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:text="@string/btn_mulai" />
+    </LinearLayout>
+
+    <!-- LAPISAN 4: OVERLAY KATEGORI KESULITAN (Poin 5) -->
+    <LinearLayout
+        android:id="@+id/overlayKesulitan"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#f80f172a"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="28dp"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Pilih Tingkat Kesulitan"
+            android:textColor="#e2e8f0"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnMudah"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Mudah (8 Nyawa)" />
+
+        <Button
+            android:id="@+id/btnSedang"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Sedang (6 Nyawa)" />
+
+        <Button
+            android:id="@+id/btnSulit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Sulit (4 Nyawa)" />
+    </LinearLayout>
+
+</FrameLayout>

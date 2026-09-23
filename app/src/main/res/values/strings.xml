@@ -1,0 +1,31 @@
+
+<resources>
+<string name="app_name">Hangman</string>
+<string name="judul_permainan">Hangman</string>
+<string name="hint_tebak">Huruf</string>
+<string name="btn_tebak">Tebak</string>
+<string name="btn_main_lagi">Main Lagi</string>
+<string name="btn_mulai">Mulai Bermain</string>
+<string name="menang">Kamu Menang!</string>
+<string name="kalah">Kamu Kalah</string>
+<string name="gambar_gantungan">Gambar tiang gantungan</string>
+
+<string-array name="daftar_kata">
+    <item>HANASUI</item>
+    <item>SOMETHINC</item>
+    <item>MAKEOVER</item>
+    <item>WARDAH</item>
+    <item>OMG</item>
+    <item>COSRX</item>
+</string-array>
+
+<!-- Petunjuk untuk poin 3 -->
+<string-array name="daftar_hint">
+    <item>Sistem operasi seluler dari Google</item>
+    <item>Bahasa pemrograman utama Android</item>
+    <item>Berkas XML untuk mengatur tampilan UI</item>
+    <item>Komponen utama antarmuka pengguna (Activity)</item>
+    <item>Mekanisme pesan untuk berpindah halaman</item>
+    <item>Komponen UI seperti Button atau TextView</item>
+</string-array>
+</resources>
